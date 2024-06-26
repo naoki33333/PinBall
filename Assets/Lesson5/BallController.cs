@@ -18,7 +18,6 @@ public class BallController : MonoBehaviour
         this.gameoverText = GameObject.Find("GameOverText");
         //シーン中のscoreTextオブジェクトを取得
         this.scoreText = GameObject.Find("scoreText");
-        this.scoreText.GetComponent<Text>().text = "Score: " + this.score.ToString();
     }
     // Update is called once per frame
     void Update()
@@ -50,5 +49,7 @@ public class BallController : MonoBehaviour
         {
             this.score += 100;
         }
+        // スコアを更新した後にscoreTextを更新
+        this.scoreText.GetComponent<Text>().text = this.score.ToString();
     }
 }
